@@ -1,0 +1,29 @@
+﻿@model CurrencyInfoModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" style="border: solid 1px #1b1e21; border-radius: 10px; padding: 20px;">
+    <h2>Please choose your currency</h2>
+    <form method="post" asp-action="CountCurrency">
+        I want to change <input type="number" name="UahAmount"/> UAH for
+        <select name="CurrencyType">
+            <option>USD</option>
+            <option>EUR</option>
+        </select>
+        <div  style="margin: 10px">
+            <button class="btn btn-success" type="submit">Count currency amount</button>
+        </div>
+
+        @if(Model != null && Model.CurrencyAmount > 0)
+            {
+                <p>You can buy @Model.CurrencyAmount @Model.CurrencyType for @Model.UahAmount UAH</p>
+            }
+        @if(Model != null && Model.CurrencyAmount <= 0)
+        { 
+            <div style=" width: 400px;margin-left: 31%;width: 400px;border-radius: 10px;background-color: lightcoral;">
+                <p>Looks like you inserted wrong amount. Uah amount should be more than 0</p>    
+            </div>
+        }
+    </form>
+</div>

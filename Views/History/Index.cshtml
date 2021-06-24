@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VkursiCurrency.Data.HistoryRecord>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UahAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyAmount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UahAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrencyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrencyAmount)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
